@@ -147,25 +147,25 @@ Docker 中镜像和容器的关系就像 类 与 实例 的关系
 ### Dockerfile 文件
 Dockerfile是一个由一系列命令和参数构成的脚本，这些命令应用于基础镜像并创建一个新的镜像。常见的Dockerfile命令有：
 
-FROM：设定基础镜像。所有的Dockerfile都需要从FROM指令开始。格式为 FROM <image>[:<tag>]。
-LABEL：为镜像添加元数据。比如版本号，描述等。格式为 LABEL <key>=<value> <key>=<value> ...。
-RUN：执行任何被基础镜像支持的命令。格式为 RUN <command>。
-CMD：设置容器启动后默认执行的命令和参数。Dockerfile中可以有多个CMD命令，但是只有最后一个会被执行。格式为 CMD ["executable","param1","param2"]（推荐方式）。
-ENTRYPOINT：为容器设置默认的可执行程序，一般至多只有一个ENTRYPOINT。格式为 ENTRYPOINT ["executable", "param1", "param2"]（推荐方式）。
-EXPOSE：声明容器运行的服务会监听某个端口。格式为 EXPOSE <port> [<port>/<protocol>...]。
-ENV：设定环境变量。格式为 ENV <key>=<value> ...。
-ADD：将本地的文件、目录或者远程的文件URL添加到镜像中。ADD指令会自动解压压缩文件。格式为 ADD <src>... <dest>。
-COPY：将从构建上下文目录中 <src> 的文件/目录复制到新的一层的镜像内的 <dest> 位置。
-VOLUME：创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存储数据库、日志等动态数据。格式为 VOLUME ["/data"]。
-WORKDIR：设定运行CMD、RUN、ENTRYPOINT、COPY和ADD命令的工作目录。格式为 WORKDIR /path/to/workdir。
-USER：设定运行容器时的UID或者用户名。格式为 USER daemon。
-ARG：定义一个变量，用户可以在构建命令 docker build 中使用 --build-arg <varname>=<value> 来覆盖。
-ONBUILD：当build一个被基于FROM指令指定的镜像时，会执行ONBUILD后面跟的指令。格式为 ONBUILD [INSTRUCTION]。
+- `FROM`：设定基础镜像。所有的Dockerfile都需要从FROM指令开始。格式为 `FROM <image>[:<tag>]`
+- `LABEL`：为镜像添加元数据。比如版本号，描述等。格式为 `LABEL <key>=<value> <key>=<value> ...`。
+- `RUN`：执行任何被基础镜像支持的命令。格式为 `RUN <command>`。
+- `CMD`：设置容器启动后默认执行的命令和参数。Dockerfile中可以有多个CMD命令，但是只有最后一个会被执行。格式为 `CMD ["executable","param1","param2"]`（推荐方式）。
+- `ENTRYPOINT`：为容器设置默认的可执行程序，一般至多只有一个ENTRYPOINT。格式为 `ENTRYPOINT ["executable", "param1", "param2"]`（推荐方式）。
+- `EXPOSE`：声明容器运行的服务会监听某个端口。格式为 EXPOSE `<port> [<port>/<protocol>...]`。
+- `ENV`：设定环境变量。格式为 `ENV <key>=<value> ...`。
+- `ADD`：将本地的文件、目录或者远程的文件URL添加到镜像中。ADD指令会自动解压压缩文件。格式为 `ADD <src>... <dest>`。
+- `COPY`：将从构建上下文目录中 <src> 的文件/目录复制到新的一层的镜像内的 <dest> 位置。
+- `VOLUME`：创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存储数据库、日志等动态数据。格式为 `VOLUME ["/data"]`。
+- `WORKDIR`：设定运行CMD、RUN、ENTRYPOINT、COPY和ADD命令的工作目录。格式为 `WORKDIR /path/to/workdir`。
+- `USER`：设定运行容器时的UID或者用户名。格式为 `USER daemon`。
+- `ARG`：定义一个变量，用户可以在构建命令 docker build 中使用 --build-arg <varname>=<value> 来覆盖。
+- `ONBUILD`：当build一个被基于FROM指令指定的镜像时，会执行ONBUILD后面跟的指令。格式为 `ONBUILD [INSTRUCTION]`。
 
 ### 部署一个前端项目
 
 #### 编写 Dockerfile 文件
-在一个项目中我们其实不需要手动去创建Dockerfile文件和compose文件，可以执行docker init自动生成，稍做修改就可使用。
+在一个项目中我们其实不需要手动去创建Dockerfile文件和compose文件，可以执行`docker init`自动生成，稍做修改就可使用。
 
 #### 打包镜像
 #### 启动容器
