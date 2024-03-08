@@ -7,7 +7,7 @@
 
 这将显示设置的HTTP和HTTPS代理。如果没有设置代理，命令将不会返回任何输出。
 
-#### 设置和取消代理
+#### 2.设置和取消代理
 ``` bash
 // 设置
 git config --global https.proxy http://127.0.0.1:1080
@@ -19,16 +19,16 @@ git config --global --unset https.proxy
 
 ```
 
-#### 2. 查看所有全局配置
+#### 3. 查看所有全局配置
 
 ``` bash
 git config --global --list
 ```
 
 
-#### 问题
+#### 4. Q & A
 
-##### 1. github 开了代理仍然无法推送/拉取代码
+##### Q1. github 开了代理仍然无法推送/拉取代码
 
 > 1. 检查代理的对端口
 > 2. 设置git代理为对外端口，例如端口为9090
