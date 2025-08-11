@@ -21,11 +21,28 @@
         '/.*/_sidebar.md': '/_sidebar.md'
       },
       autoHeader: true,
-      relative: true
+      relative: true,
+      // 添加代码高亮配置
+      plugins: [
+        function(hook, vm) {
+          hook.ready(function() {
+            // 确保 Prism 正确加载
+            if (window.Prism) {
+              window.Prism.highlightAll();
+            }
+          });
+        }
+      ]
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Prism.js 代码高亮 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/plugins/autoloader/prism-autoloader.min.js"></script>
+
+  <!-- TypeScript 语法支持 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
 </body>
 
 </html>

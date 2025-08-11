@@ -93,7 +93,7 @@ export default () => {
 }
 ```
 
-1. 如果使用**路由绑定**的方式引入子应用，则需要在父应用的`src/app.ts`里导出一个名为`useQiankunStateForSlave()`的函数，该函数的返回值将传递给子应用：
+2. 如果使用**路由绑定**的方式引入子应用，则需要在父应用的`src/app.ts`里导出一个名为`useQiankunStateForSlave()`的函数，该函数的返回值将传递给子应用：
 ```typescript
 // src/app.ts
 export function useQiankunStateForSalve() {
@@ -119,7 +119,7 @@ export default () => {
 }
 ```
 
-1. 使用高阶组件`connectMaster()`来获取并消费父应用透传的数据
+2. 使用高阶组件`connectMaster()`来获取并消费父应用透传的数据
 
 ```jsx
 import {connectMaster} from 'umi'
@@ -131,7 +131,7 @@ function MyPage(props) {
 export default connectMaster(MyPage);
 ```
 
-1. 在子应用的生命周期钩子中获取并消费父应用透传的数据
+3. 在子应用的生命周期钩子中获取并消费父应用透传的数据
 ```typescript
 // 子应用 src/app.ts
 export function mount(props) {
@@ -139,7 +139,7 @@ export function mount(props) {
 }
 ```
 
-1. 特别的，当父应用使用<MicroApp />或者<MicroAppWithMemoHistory />组件方式引入子应用时，会额外向子应用透传一个`setLoading()`方法，允许子应用在合适的时机执行，标记子应用加载为完成状态。当子应用挂在完成变成`MOUNTED`状态时，会自动标记为完成状态。
+4. 特别的，当父应用使用<MicroApp />或者<MicroAppWithMemoHistory />组件方式引入子应用时，会额外向子应用透传一个`setLoading()`方法，允许子应用在合适的时机执行，标记子应用加载为完成状态。当子应用挂在完成变成`MOUNTED`状态时，会自动标记为完成状态。
 
 ```typescript
 const masterProps = useModel('@@qiankunStateFromMaster');
