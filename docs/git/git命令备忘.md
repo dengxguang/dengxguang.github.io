@@ -33,5 +33,5 @@ git config --global --list
 > 1. 检查代理的对端口
 > 2. 设置git代理为对外端口，例如端口为9090
 >   ``` bash
-    git config --global https.proxy http:127.0.0.1:9090
+    git config --global https.proxy https://127.0.0.1:9090
   ```

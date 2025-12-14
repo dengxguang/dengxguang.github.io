@@ -1,5 +1,3 @@
-## LangChain 学习笔记
-
 ### 什么是LangChain
 
 - LangChain 由 Harrison Chase 创建于2022年10月，它是園绕LLMS（大语言模型）建立的一个框架
